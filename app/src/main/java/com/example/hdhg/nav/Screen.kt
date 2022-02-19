@@ -6,6 +6,8 @@ import androidx.compose.material.icons.outlined.List
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.ui.graphics.vector.ImageVector
 
+const val APP_ARGUMENT_KEY = "appId"
+
 sealed class Screen(
     val route: String,
     val title: String,
@@ -24,8 +26,10 @@ sealed class Screen(
     )
 
     object App: Screen(
-        route = "app",
+        route = "app/{$APP_ARGUMENT_KEY}",
         title = "App",
         icon = Icons.Outlined.AccountBox
-    )
+    ) {
+        fun passId(appId: Int) = "app/$appId"
+    }
 }

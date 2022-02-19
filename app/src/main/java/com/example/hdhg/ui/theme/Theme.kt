@@ -12,23 +12,16 @@ private val DarkColorPalette = darkColors(
 
     background = EDarkBackground,
     onBackground = Color.White,
-
-
-    primary = EDarkBackground,
-    onPrimary = Color.White,
+    //surface = EDarkBackground,
     primaryVariant = EDarkExtraBackground,
-    secondary = Teal200,
 )
 
 private val LightColorPalette = lightColors(
 
     background = EBackground,
     onBackground = Color.Black,
-
-
-    primary = Purple500,
+    surface = EBackground,
     primaryVariant = EExtraBackground,
-    secondary = Teal200
 
     /* Other default colors to override
     background = Color.White,

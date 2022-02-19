@@ -1,6 +1,8 @@
 package com.example.hdhg.widgets
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
@@ -53,7 +55,8 @@ fun GradScanButton(
         Box(
             modifier = Modifier
                 .background(shape = CircleShape, brush = gradient)
-                .fillMaxSize(),
+                .fillMaxSize()
+                .border(border = BorderStroke(4.dp, gradient), shape = CircleShape),  //
             contentAlignment = Alignment.Center
         ) {
             Row(
@@ -73,8 +76,6 @@ fun GradScanButton(
                     color = textColor
                 )
             }
-
         }
     }
-
 }
