@@ -1,12 +1,11 @@
 package com.example.hdhg.ui.screens
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -28,10 +27,8 @@ fun AppScreen(viewModel: MainViewModel, navController: NavController, appId: Int
         )
     )
 
-
     Surface(
         color = MaterialTheme.colors.background,
-        modifier = Modifier.fillMaxSize()
     ) {
         Column(
             Modifier
@@ -42,30 +39,30 @@ fun AppScreen(viewModel: MainViewModel, navController: NavController, appId: Int
             AppInfo(app = app)
 
             Spacer(modifier = Modifier.padding(20.dp))
+
             Button(
                 onClick = { navController.popBackStack() },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Color.Transparent
                 ),
-                shape = RoundedCornerShape(size = 32.dp),
-                contentPadding = PaddingValues(0.dp),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(
-                        shape = RoundedCornerShape(size = 32.dp),
-                        brush = smoothThemeGradient
-                    )
-                    .border(
-                        shape = RoundedCornerShape(size = 32.dp),
-                        border = BorderStroke(1.dp, MaterialTheme.colors.primaryVariant)
-                    )
+                contentPadding = PaddingValues(),
+                shape = CircleShape,
+                modifier = Modifier.fillMaxWidth().height(48.dp)
             ) {
-                Text(
-                    text = stringResource(R.string.back_button)
-                )
+                Box(
+                    modifier = Modifier
+                        .background(shape = CircleShape, brush = smoothThemeGradient)
+                        .fillMaxWidth()
+                        .height(48.dp),
+                    contentAlignment = Alignment.Center,
+
+                ) {
+                    Text(
+                        text = stringResource(R.string.back_button)
+                    )
+                }
+
             }
         }
-
-
     }
 }

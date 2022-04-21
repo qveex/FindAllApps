@@ -58,9 +58,10 @@ fun AppInfo(app: App) {
             fontSize = MaterialTheme.typography.h5.fontSize,
             overflow = TextOverflow.Ellipsis,
             fontWeight = FontWeight.Bold,
-            maxLines = 1,
+            maxLines = 2,
+            modifier = Modifier.padding(8.dp)
         )
-        Spacer(modifier = Modifier.padding(8.dp))
+        Spacer(modifier = Modifier.padding(20.dp))
 
 
         Column(

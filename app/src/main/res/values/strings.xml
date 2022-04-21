@@ -4,4 +4,7 @@
     <string name="app_item_sdk">TargetSdkVersion: </string>
     <string name="app_item_date">installation date: </string>
     <string name="back_button">Back</string>
+    <string name="scan_button">Scan</string>
+    <string name="app_title">Find all apps</string>
+    <string name="app_description">on your phone</string>
 </resources>

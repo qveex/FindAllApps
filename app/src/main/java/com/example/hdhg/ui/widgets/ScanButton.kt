@@ -43,6 +43,13 @@ fun GradScanButton(
     textColor: Color
 ) {
 
+    val borderGrad = Brush.linearGradient(
+        listOf(
+            MaterialTheme.colors.secondary,
+            MaterialTheme.colors.primary,
+        )
+    )
+
     Button(
         modifier = Modifier.size(LocalConfiguration.current.screenWidthDp.dp - 64.dp),
         onClick = { onClicked() },
@@ -56,7 +63,7 @@ fun GradScanButton(
             modifier = Modifier
                 .background(shape = CircleShape, brush = gradient)
                 .fillMaxSize()
-                .border(border = BorderStroke(4.dp, gradient), shape = CircleShape),  //
+                .border(border = BorderStroke(6.dp, borderGrad), shape = CircleShape),  //
             contentAlignment = Alignment.Center
         ) {
             Row(
@@ -71,7 +78,7 @@ fun GradScanButton(
                 )
                 Spacer(modifier = Modifier.padding(4.dp))
                 Text(
-                    text = text,
+                    text = text.uppercase(),
                     fontSize = MaterialTheme.typography.h4.fontSize,
                     color = textColor
                 )

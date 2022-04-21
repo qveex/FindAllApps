@@ -16,8 +16,6 @@ val DarkGrey = Color(0xFF575757)
 val DarkestGrey = Color(0xFF323131)
 val test = Color(0xFF383838)
 
-val grad = Brush.horizontalGradient(listOf(Purple700, Teal200))
-
 val EDarkBackground =  Color(0xFF33383E)
 val EDarkExtraBackground = Color(0xFF272B30)
 
