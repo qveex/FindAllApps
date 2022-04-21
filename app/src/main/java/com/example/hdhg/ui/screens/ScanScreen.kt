@@ -1,6 +1,5 @@
-package com.example.hdhg.screens
+package com.example.hdhg.ui.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,7 +13,7 @@ import androidx.navigation.NavController
 import com.example.hdhg.nav.Screen
 import com.example.hdhg.ui.theme.grad
 import com.example.hdhg.viewModel.MainViewModel
-import com.example.hdhg.widgets.GradScanButton
+import com.example.hdhg.ui.widgets.GradScanButton
 
 @Composable
 fun ScanScreen(viewModel: MainViewModel, navController: NavController) {

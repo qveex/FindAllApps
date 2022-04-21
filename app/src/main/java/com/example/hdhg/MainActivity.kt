@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.Surface
-import com.example.hdhg.screens.MainScreen
+import com.example.hdhg.ui.screens.MainScreen
 import com.example.hdhg.ui.theme.HdhgTheme
 import com.example.hdhg.viewModel.MainViewModel
 

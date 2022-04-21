@@ -1,4 +1,4 @@
-package com.example.hdhg.widgets
+package com.example.hdhg.ui.widgets
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
