@@ -2,7 +2,9 @@ package com.example.hdhg.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,7 +28,6 @@ fun AppScreen(viewModel: MainViewModel, navController: NavController, appId: Int
             MaterialTheme.colors.background
         )
     )
-
     Surface(
         color = MaterialTheme.colors.background,
     ) {
@@ -34,6 +35,7 @@ fun AppScreen(viewModel: MainViewModel, navController: NavController, appId: Int
             Modifier
                 .padding(24.dp, 32.dp)
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
         ) {
 
             AppInfo(app = app)
@@ -47,7 +49,9 @@ fun AppScreen(viewModel: MainViewModel, navController: NavController, appId: Int
                 ),
                 contentPadding = PaddingValues(),
                 shape = CircleShape,
-                modifier = Modifier.fillMaxWidth().height(48.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp)
             ) {
                 Box(
                     modifier = Modifier
