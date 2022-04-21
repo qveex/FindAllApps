@@ -1,4 +1,4 @@
-package com.example.hdhg.screens
+package com.example.hdhg.ui.screens
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.Scaffold
@@ -7,14 +7,15 @@ import androidx.navigation.compose.rememberNavController
 import com.example.hdhg.nav.NavGraph
 import com.example.hdhg.nav.Screen
 import com.example.hdhg.viewModel.MainViewModel
-import com.example.hdhg.widgets.MainTopBar
+import com.example.hdhg.ui.widgets.MainTopBar
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 
 
 @ExperimentalAnimationApi
 @Composable
 fun MainScreen(viewModel: MainViewModel) {
 
-    val navController = rememberNavController()
+    val navController = rememberAnimatedNavController()
 
     Scaffold(
         topBar = {

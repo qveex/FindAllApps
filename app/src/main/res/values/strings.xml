@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">hdhg</string>
+    <string name="app_item_size">Size: </string>
+    <string name="app_item_sdk">TargetSdkVersion: </string>
+    <string name="app_item_date">installation date: </string>
+    <string name="back_button">Back</string>
 </resources>

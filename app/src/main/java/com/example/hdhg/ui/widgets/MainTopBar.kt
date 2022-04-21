@@ -1,4 +1,4 @@
-package com.example.hdhg.widgets
+package com.example.hdhg.ui.widgets
 
 
 import android.annotation.SuppressLint
@@ -50,7 +50,8 @@ fun SwitchTheme(
 
     IconToggleButton(
         checked = isDarkTheme,
-        onCheckedChange = { onThemeSwitch() }
+        onCheckedChange = { onThemeSwitch() },
+        modifier = Modifier.size(Icons.Outlined.DarkMode.defaultHeight * 2)
     ) {
         val transition = updateTransition(
             targetState = isDarkTheme,
