@@ -31,6 +31,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun AppListScreen(viewModel: MainViewModel, navController: NavController) {
     Surface(
+        modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
         val listState = rememberLazyListState()

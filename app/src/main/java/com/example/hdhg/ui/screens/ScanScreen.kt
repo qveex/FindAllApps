@@ -1,6 +1,8 @@
 package com.example.hdhg.ui.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -29,7 +31,9 @@ fun ScanScreen(viewModel: MainViewModel, navController: NavController) {
 
     Scaffold {
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -46,6 +50,7 @@ fun ScanScreen(viewModel: MainViewModel, navController: NavController) {
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.rotate(10f)
             )
+            Spacer(modifier = Modifier.padding(24.dp))
             Row(
                 modifier = Modifier.fillMaxSize(),
                 horizontalArrangement = Arrangement.Center,
@@ -66,6 +71,7 @@ fun ScanScreen(viewModel: MainViewModel, navController: NavController) {
                     textColor = Color.White
                 )
             }
+            Spacer(modifier = Modifier.padding(12.dp))
         }
     }
 }

@@ -49,9 +49,13 @@ fun GradScanButton(
             MaterialTheme.colors.primary,
         )
     )
+    val size = maxOf(
+        LocalConfiguration.current.screenWidthDp.dp,
+        LocalConfiguration.current.screenHeightDp.dp
+    ) / 2
 
     Button(
-        modifier = Modifier.size(LocalConfiguration.current.screenWidthDp.dp - 64.dp),
+        modifier = Modifier.size(size),
         onClick = { onClicked() },
         colors = ButtonDefaults.buttonColors(
             backgroundColor = Color.Transparent

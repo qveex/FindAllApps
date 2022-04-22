@@ -65,7 +65,6 @@ fun AppScreen(viewModel: MainViewModel, navController: NavController, appId: Int
                         text = stringResource(R.string.back_button)
                     )
                 }
-
             }
         }
     }

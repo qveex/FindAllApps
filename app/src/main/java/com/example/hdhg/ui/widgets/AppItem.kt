@@ -1,13 +1,16 @@
 package com.example.hdhg.ui.widgets
 
-import android.util.Log
-import androidx.compose.foundation.*
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -19,11 +22,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.hdhg.models.App
-import kotlinx.coroutines.launch
 
 @Composable
 fun AppItem(app: App, onClicked: () -> Unit) {
 
+    val size = maxOf(
+        LocalConfiguration.current.screenWidthDp.dp,
+        LocalConfiguration.current.screenHeightDp.dp
+    ) / 4
     val smoothThemeGradient = Brush.linearGradient(
         listOf(
             MaterialTheme.colors.primaryVariant,
@@ -36,17 +42,18 @@ fun AppItem(app: App, onClicked: () -> Unit) {
             backgroundColor = Color.Transparent
         ),
         shape = RoundedCornerShape(size = 32.dp),
-        contentPadding = PaddingValues(1.dp),
+        contentPadding = PaddingValues(),
         modifier = Modifier
-            .background(shape = RoundedCornerShape(size = 32.dp), brush = smoothThemeGradient)
             .border(
                 shape = RoundedCornerShape(size = 32.dp),
                 border = BorderStroke(1.dp, MaterialTheme.colors.primaryVariant)
             )
-            .width(LocalConfiguration.current.screenWidthDp.dp / 2 - 24.dp)
-            .height(LocalConfiguration.current.screenHeightDp.dp / 4),
+            .size(size)
     ) {
         Column(
+            modifier = Modifier
+                .size(size)
+                .background(shape = RoundedCornerShape(size = 32.dp), brush = smoothThemeGradient),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
