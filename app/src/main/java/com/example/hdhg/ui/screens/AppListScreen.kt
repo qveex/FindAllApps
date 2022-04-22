@@ -8,7 +8,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -20,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.hdhg.models.App
 import com.example.hdhg.nav.Screen
 import com.example.hdhg.ui.widgets.AppItem
 import com.example.hdhg.viewModel.MainViewModel
@@ -52,27 +50,33 @@ fun AppListScreen(viewModel: MainViewModel, navController: NavController) {
                     fontWeight = FontWeight.Bold
                 )
             }
-            itemsIndexed(items = apps, key = fun(i: Int, a: App): Int = a.id) { index, item ->
-                if (index % 2 == 0 && index != apps.lastIndex) {
-                    Row(
-                        Modifier.animateItemPlacement(
-                            animationSpec = tween(600)
-                        )
-                    ) {
+            items(
+                count = apps.size,
+                key = { apps[it].id },
+                itemContent = { index ->
+
+                    if (index % 2 == 0 && index != apps.lastIndex) {
+                        Row(
+                            Modifier.animateItemPlacement(
+                                animationSpec = tween(600)
+                            )
+                        ) {
+                            AppItem(app = apps[index]) {
+                                navController.navigate(Screen.App.passId(apps[index].id))
+                            }
+                            Spacer(modifier = Modifier.padding(12.dp))
+                            AppItem(app = apps[index + 1]) {
+                                navController.navigate(Screen.App.passId(apps[index + 1].id))
+                            }
+                        }
+                    } else if (index == apps.lastIndex && apps.size % 2 != 0) {
                         AppItem(app = apps[index]) {
                             navController.navigate(Screen.App.passId(apps[index].id))
                         }
-                        Spacer(modifier = Modifier.padding(12.dp))
-                        AppItem(app = apps[index + 1]) {
-                            navController.navigate(Screen.App.passId(apps[index + 1].id))
-                        }
                     }
-                } else if (index == apps.lastIndex && apps.size % 2 != 0) {
-                    AppItem(app = item) {
-                        navController.navigate(Screen.App.passId(item.id))
-                    }
+
                 }
-            }
+            )
         }
 
         Box(modifier = Modifier.fillMaxSize()) {

@@ -22,8 +22,14 @@ fun MainScreen(viewModel: MainViewModel) {
             MainTopBar(
                 isDarkTheme = viewModel.isDarkThemeState.value,
                 onThemeSwitch = { viewModel.changeThemeState() },
-                onScanClicked = { navController.navigate(route = Screen.Scan.route) },
-                onAppsClicked = { navController.navigate(route = Screen.AppsList.route) }
+                onScanClicked = {
+                    if (navController.currentDestination?.route != Screen.Scan.route)
+                        navController.navigate(route = Screen.Scan.route)
+                },
+                onAppsClicked = {
+                    if (navController.currentDestination?.route != Screen.AppsList.route)
+                        navController.navigate(route = Screen.AppsList.route)
+                }
             )
         }
     ) {
